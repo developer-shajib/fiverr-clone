@@ -1,6 +1,8 @@
 // allowed origin
+import dotenv from 'dotenv';
+dotenv.config();
 
-const allowedOrigins = [process.env.PUBLIC_URL, 'https://localhost:3000', 'http://localhost:5173', 'https://chat-app-with-mern-stack.vercel.app'];
+const allowedOrigins = [process.env.PUBLIC_URL, 'https://localhost:3000', 'http://localhost:5173'];
 
 // cors options
 const corsOptions = {

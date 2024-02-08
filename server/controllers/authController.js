@@ -76,7 +76,7 @@ export const signIn = asyncHandler(async (req, res) => {
   if (token)
     res
       .status(200)
-      .cookie('accessToken', token, {
+      .cookie('accessToken', token, { 
         httpOnly: false,
         secure: true,
         sameSite: 'none',
