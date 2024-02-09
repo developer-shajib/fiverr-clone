@@ -40,7 +40,6 @@ function Profile() {
 
   useEffect(() => {
     if (isSuccess) {
-      setInput({ username: '', fullName: '', description: '' });
       sweetAlert(data.message, 'success');
       dispatch(setUserInfo({ user: data.user }));
     }
@@ -49,13 +48,12 @@ function Profile() {
     }
   }, [isSuccess, data, error, setInput, dispatch]);
 
+  useEffect(() => {
+    if (user) setInput({ ...input, username: user?.username || '', fullName: user?.fullName || '', description: user?.description || '' });
+  }, [user]);
+
   return (
     <div className='flex flex-col items-center justify-start min-h-[80vh] gap-1 mt-32 mb-auto w-full mx-auto`}'>
-      {/* {errorMessage && (
-          <div>
-            <span className='text-red-600 font-bold'>{errorMessage}</span>
-          </div>
-        )} */}
       <h2 className='text-2xl'>Welocme to Fiverr Clone</h2>
       <h4 className='text-lg'>Please complete your profile to get started</h4>
       <div className='flex flex-col items-center w-full gap-5'>
