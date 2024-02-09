@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import Cookies from 'js-cookie';
 
 // <!-- initial State -->
 const initialState = {
@@ -11,7 +12,8 @@ const initialState = {
   error: '',
   showSignInModal: false,
   showSignUpModal: false,
-  isSeller: true
+  isSeller: true,
+  token: Cookies.get('accessToken') || null
 };
 
 // <!-- Auth Slice -->

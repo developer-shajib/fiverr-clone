@@ -8,7 +8,15 @@ const apiSlice = createApi({
     // 'http://localhost:5050',
 
     credentials: 'include',
-    withCredentials: true
+    withCredentials: true,
+    prepareHeaders: (headers, { getState }) => {
+      // Add custom headers here
+      const token = getState()?.userState?.token;
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`);
+      }
+      return headers;
+    }
   }),
   endpoints: () => ({})
 });

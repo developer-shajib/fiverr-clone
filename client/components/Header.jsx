@@ -81,6 +81,8 @@ function Header() {
 
   useEffect(() => {
     if (logoutSuccess) {
+      Cookies.remove('accessToken');
+
       dispatch(setLogoutEmpty());
       router.push('/');
     }

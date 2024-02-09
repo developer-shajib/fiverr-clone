@@ -36,14 +36,14 @@ export const signup = asyncHandler(async (req, res) => {
     if (token)
       res
         .status(201)
-        .cookie('accessToken', token, {
-          httpOnly: true,
-          secure: true,
-          sameSite: 'none',
-          path: '/',
-          maxAge: 7 * 24 * 60 * 60 * 1000
-        })
-        .json({ user, message: 'Account created successful' });
+        // .cookie('accessToken', token, {
+        //   httpOnly: false,
+        //   secure: true,
+        //   sameSite: 'none',
+        //   path: '/',
+        //   maxAge: 7 * 24 * 60 * 60 * 1000
+        // })
+        .json({ user, token, message: 'Account created successful' });
   } else {
     res.status(400).json({ message: 'Account not created' });
   }
@@ -73,17 +73,14 @@ export const signIn = asyncHandler(async (req, res) => {
   // response to client
 
   const token = createToken({ id: user.id, email: user.email });
-  if (token)
-    res
-      .status(200)
-      .cookie('accessToken', token, {
-        httpOnly: true,
-        secure: true,
-        sameSite: 'none',
-        path: '/',
-        maxAge: 7 * 24 * 60 * 60 * 1000
-      })
-      .json({ user, message: 'Sign In successful' });
+  if (token) res.status(200).json({ user, token, message: 'Sign In successful' });
+  // .cookie('accessToken', token, {
+  //   httpOnly: false,
+  //   secure: true,
+  //   sameSite: 'none',
+  //   path: '/',
+  //   maxAge: 7 * 24 * 60 * 60 * 1000
+  // })
 });
 
 /**
@@ -104,12 +101,12 @@ export const loggedIn = asyncHandler(async (req, res) => {
 export const logout = asyncHandler(async (req, res) => {
   res
     .status(200)
-    .clearCookie('accessToken', {
-      httpOnly: true,
-      secure: true,
-      sameSite: 'none',
-      path: '/',
-      expires: new Date(0)
-    })
+    // .clearCookie('accessToken', {
+    //   httpOnly: false,
+    //   secure: true,
+    //   sameSite: 'none',
+    //   path: '/',
+    //   expires: new Date(0)
+    // })
     .json({ message: 'Logout successful' });
 });

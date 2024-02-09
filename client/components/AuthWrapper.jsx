@@ -9,6 +9,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { MdFacebook } from 'react-icons/md';
 import { useSelector, useDispatch } from 'react-redux';
 import { RxCross2 } from 'react-icons/rx';
+import Cookies from 'js-cookie';
 
 function AuthWrapper({ type }) {
   const { user, users, successMessage, error, showSignInModal, showSignUpModal } = useSelector(getAllAuthState);
@@ -32,6 +33,8 @@ function AuthWrapper({ type }) {
 
   useEffect(() => {
     if (isSuccess) {
+            if (data?.token) Cookies.set('accessToken', data?.token, { expires: 7, path: '/' });
+
       sweetAlert(data.message, 'success');
       dispatch(setUserInfo({ user: data.user }));
       setInput((prevState) => ({ ...prevState, email: '', password: '' }));
@@ -44,6 +47,7 @@ function AuthWrapper({ type }) {
   }, [isSuccess, data, singUpError, dispatch, setInput]);
   useEffect(() => {
     if (singInSuccess) {
+      if (singInData?.token) Cookies.set('accessToken', singInData?.token, { expires: 7, path: '/' });
       sweetAlert(singInData.message, 'success');
       dispatch(setUserInfo({ user: singInData.user }));
       setInput((prevState) => ({ ...prevState, email: '', password: '' }));
