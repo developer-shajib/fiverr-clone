@@ -37,7 +37,7 @@ export const signup = asyncHandler(async (req, res) => {
       res
         .status(201)
         .cookie('accessToken', token, {
-          httpOnly: false,
+          httpOnly: true,
           secure: true,
           sameSite: 'none',
           path: '/',
@@ -76,8 +76,8 @@ export const signIn = asyncHandler(async (req, res) => {
   if (token)
     res
       .status(200)
-      .cookie('accessToken', token, { 
-        httpOnly: false,
+      .cookie('accessToken', token, {
+        httpOnly: true,
         secure: true,
         sameSite: 'none',
         path: '/',
@@ -105,7 +105,7 @@ export const logout = asyncHandler(async (req, res) => {
   res
     .status(200)
     .clearCookie('accessToken', {
-      httpOnly: false,
+      httpOnly: true,
       secure: true,
       sameSite: 'none',
       path: '/',
