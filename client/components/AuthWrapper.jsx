@@ -33,7 +33,7 @@ function AuthWrapper({ type }) {
 
   useEffect(() => {
     if (isSuccess) {
-            if (data?.token) Cookies.set('accessToken', data?.token, { expires: 7, path: '/' });
+      if (data?.token) Cookies.set('accessToken', data?.token, { expires: 7, path: '/', secure: true });
 
       sweetAlert(data.message, 'success');
       dispatch(setUserInfo({ user: data.user }));
@@ -47,7 +47,7 @@ function AuthWrapper({ type }) {
   }, [isSuccess, data, singUpError, dispatch, setInput]);
   useEffect(() => {
     if (singInSuccess) {
-      if (singInData?.token) Cookies.set('accessToken', singInData?.token, { expires: 7, path: '/' });
+      if (singInData?.token) Cookies.set('accessToken', singInData?.token, { expires: 7, path: '/', secure: true });
       sweetAlert(singInData.message, 'success');
       dispatch(setUserInfo({ user: singInData.user }));
       setInput((prevState) => ({ ...prevState, email: '', password: '' }));

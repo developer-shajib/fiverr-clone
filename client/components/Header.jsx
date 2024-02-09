@@ -75,6 +75,7 @@ function Header() {
       dispatch(setUserInfo({ user: data?.user }));
     }
     if (error) {
+      Cookies.remove('accessToken');
       dispatch(setLogoutEmpty());
     }
   }, [data, token, isSuccess, dispatch]);
