@@ -52,6 +52,8 @@ export const getSingleGig = asyncHandler(async (req, res) => {
 export const addGig = asyncHandler(async (req, res) => {
   const { title, description, category, deliveryTime, revisions, features, price, shortDesc } = req.body;
 
+  console.log(req.me);
+
   // Form Validation
   if (!title || !description || !category || !deliveryTime || !revisions || !features || !price || !shortDesc) {
     return res.status(400).json({ message: 'Gigs info is required' });
