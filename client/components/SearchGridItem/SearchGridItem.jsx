@@ -21,7 +21,7 @@ function SearchGridItem({ gig, key }) {
   return (
     <>
       <div
-        className='max-w-[300px] flex flex-col gap-2 p-1 cursor-pointer mb-8'
+        className='w-1/4 flex flex-col gap-2 p-1 cursor-pointer mb-8'
         onClick={() => router.push(`/gig/${gig?.id}`)}>
         <div className='relative w-80 h-52'>
           <Image

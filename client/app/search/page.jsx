@@ -41,7 +41,7 @@ function Search({ params, searchParams }) {
             <div className='my-4'>
               <span className='text-[#74767e] font-medium '>{gigs.length} services available</span>
             </div>
-            <div className='grid grid-cols-4'>
+            <div className='flex flex-wrap gap-2 '>
               {gigs?.map((gig) => (
                 <SearchGridItem
                   gig={gig}
