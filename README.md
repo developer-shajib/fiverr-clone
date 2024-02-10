@@ -1,6 +1,3 @@
-Sure! Below is the README.md file for your project structure:
-
-````markdown
 # Fiverr Clone
 
 ![Banner](Banner.png)
@@ -34,7 +31,6 @@ This project is a clone of the popular freelancing platform Fiverr. It includes 
    ```bash
    cd fiverr-clone/server
    ```
-````
 
 2. Install dependencies:
 
@@ -92,7 +88,11 @@ This project is a clone of the popular freelancing platform Fiverr. It includes 
 
 ## Live Demo
 
-View the live demo [here](insert_live_link).
+View the live demo [fiverr-clone](https://fiverr-clone-alpha.vercel.app/).
+
+## Video Demo
+
+View the video demo [here](insert_live_link).
 
 ## Contributing
 
@@ -100,7 +100,7 @@ Contributions are welcome! Feel free to open a pull request or submit an issue.
 
 ## Contact
 
-For any inquiries, you can reach me via [LinkedIn](linkedin_profile_link).
+For any inquiries, you can reach me via [LinkedIn](https://www.linkedin.com/in/developer-shajib).
 
 ## License
 
