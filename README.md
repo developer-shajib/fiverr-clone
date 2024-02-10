@@ -92,7 +92,7 @@ View the live demo [fiverr-clone](https://fiverr-clone-alpha.vercel.app/).
 
 ## Video Demo
 
-View the video demo [here](insert_live_link).
+View the video demo [here](https://www.linkedin.com/posts/developer-shajib_uses-features-activity-7162174396185407488-hD5Y?utm_source=share&utm_medium=member_desktop).
 
 ## Contributing
 
